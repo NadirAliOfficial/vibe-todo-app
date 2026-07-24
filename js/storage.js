@@ -10,7 +10,7 @@ const STORAGE_KEYS = {
 const DEFAULT_TASKS = [
   {
     id: 'task-1',
-    title: '⚡ 30-min Deep Work Session (Focus Flow)',
+    title: '30-min Deep Work Session (Focus Flow)',
     priority: 'focus',
     category: 'Work',
     completed: false,
@@ -22,7 +22,7 @@ const DEFAULT_TASKS = [
   },
   {
     id: 'task-2',
-    title: '🎨 Design Synthwave UI Components',
+    title: 'Design Synthwave UI Components',
     priority: 'rush',
     category: 'Creative',
     completed: false,
@@ -31,7 +31,7 @@ const DEFAULT_TASKS = [
   },
   {
     id: 'task-3',
-    title: '🍵 Sip Matcha Tea & Reflect on Weekly Goals',
+    title: 'Sip Matcha Tea & Reflect on Weekly Goals',
     priority: 'chill',
     category: 'Personal',
     completed: true,
@@ -106,7 +106,7 @@ export class VibeStorage {
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
       if (diffDays > 1) {
-        stats.streakDays = 1; // Reset streak if missed more than 1 day
+        stats.streakDays = 1;
       } else {
         stats.streakDays += 1;
       }

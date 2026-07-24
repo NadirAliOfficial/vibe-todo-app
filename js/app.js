@@ -223,7 +223,6 @@ class VibeApp {
     if (filtered.length === 0) {
       listContainer.innerHTML = `
         <div style="text-align: center; padding: 40px; color: var(--text-dim);">
-          <div style="font-size: 2.5rem; margin-bottom: 8px;">✨</div>
           <p>No tasks found in this view. Enjoy the ambient stillness.</p>
         </div>
       `;
@@ -236,7 +235,7 @@ class VibeApp {
       card.dataset.id = task.id;
 
       const subtaskDone = task.subtasks.filter(s => s.completed).length;
-      const subtaskMeta = task.subtasks.length > 0 ? `<span>📌 ${subtaskDone}/${task.subtasks.length} subtasks</span>` : '';
+      const subtaskMeta = task.subtasks.length > 0 ? `<span>${subtaskDone}/${task.subtasks.length} subtasks</span>` : '';
 
       card.innerHTML = `
         <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''}>
@@ -249,8 +248,8 @@ class VibeApp {
           </div>
         </div>
         <div class="task-actions">
-          <button class="action-btn edit" title="Edit Subtasks">✏️</button>
-          <button class="action-btn delete" title="Delete Task">🗑️</button>
+          <button class="action-btn edit" title="Edit Subtasks">Edit</button>
+          <button class="action-btn delete" title="Delete Task">Delete</button>
         </div>
       `;
 
@@ -374,8 +373,8 @@ class VibeApp {
 
   updateStatsUI() {
     const stats = VibeStorage.getStats();
-    document.getElementById('streakVal').textContent = `🔥 ${stats.streakDays} Days`;
-    document.getElementById('focusVal').textContent = `⏱️ ${stats.focusMinutesLogged}m`;
+    document.getElementById('streakVal').textContent = `${stats.streakDays} Days`;
+    document.getElementById('focusVal').textContent = `${stats.focusMinutesLogged}m`;
 
     const activeCount = this.tasks.filter(t => !t.completed).length;
     const completedCount = this.tasks.filter(t => t.completed).length;
